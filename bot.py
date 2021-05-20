@@ -23,8 +23,8 @@ async def on_ready():
     )
 
 @bot.check
-def check_commands(ctx):
-    return bot.is_owner(ctx.author) or ctx.guild and ctx.author.guild_permissions.administrator
+async def check_commands(ctx):
+    return (ctx.guild and ctx.author.guild_permissions.administrator) or (await bot.is_owner(ctx.author))
 
 @bot.command()
 async def say(ctx, channel: Optional[discord.TextChannel], *, text: str):
