@@ -32,6 +32,7 @@ async def say(ctx, channel: Optional[discord.TextChannel], *, text: str):
         channel = ctx.channel
 
     await channel.send(text)
+    await ctx.message.add_reaction('\N{OK HAND SIGN}')
 
 
 bot.run(TOKEN)
